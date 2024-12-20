@@ -24,17 +24,32 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <BellasLayout />,
-   
     children: [
-      { path: "/", element: <BellasHome /> },
-      { path: "details/:id", element: <Details /> },
-      { path: "success", element: <Success /> },
-      { path: "bella-login", element: <Login /> },
-      { path: "bella-signup", element: <SignUp /> },
-      { path: "bella-reset", element: <ResetPassword /> },
-      { path: "bella-update", element: <UpdatePassword /> },
+      { path: "/bellas-home", element: <BellasHome /> },
+      {path: "/details/:id", element : <Details /> },
+      {path: "/success", element : <Success/> },
+      {path: "/bella-login", element : <Login /> },
+      {path: "/bella-signup", element : <SignUp /> },
+      {path: "/bella-reset", element : <ResetPassword /> },
+      {path: "/bella-update", element : <UpdatePassword /> },
+
+
+
+
     ],
   },
+
+
+
+
+
+
+
+ 
+
+
+ 
+
 ]);
 
 export { router };
