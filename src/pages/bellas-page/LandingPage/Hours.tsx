@@ -3,7 +3,7 @@
 const Hours = () => {
     return (
         <div className="bg-white">
-            <div className="py-12 max-w-[1500px] mx-auto ">
+            <div className="py-12 lg:mx-24 ">
             <div className="flex items-center justify-between">
                 <h1 className="text-3xl ">Our Hours of Operation</h1>
                 <button className="bg-black rounded-full py-3 px-3 text-white w-64">Explore Our Services</button>

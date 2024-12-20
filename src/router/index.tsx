@@ -12,53 +12,29 @@ import BellaLandingPage from "@/pages/bellas-page/LandingPage/BellaLandingPage";
 import BellasLandingHome from "@/pages/bellas-page/LandingPage/BellasLandingHome";
 
 
-
-
-
-
 const router = createBrowserRouter([
- 
-
-  
- 
-
+  // {
+   
+  //   element: <BellaLandingPage />,
+  //   // Catch errors here
+  //   children: [
+  //     { path: "/home", element: <BellasLandingHome /> },
+  //   ],
+  // },
   {
-    
+    path: "/",
     element: <BellasLayout />,
+   
     children: [
-      { path: "/bellas-home", element: <BellasHome /> },
-      {path: "/details/:id", element : <Details /> },
-      {path: "/success", element : <Success/> },
-      {path: "/bella-login", element : <Login /> },
-      {path: "/bella-signup", element : <SignUp /> },
-      {path: "/bella-reset", element : <ResetPassword /> },
-      {path: "/bella-update", element : <UpdatePassword /> },
-
-
-
-
+      { path: "/", element: <BellasHome /> },
+      { path: "details/:id", element: <Details /> },
+      { path: "success", element: <Success /> },
+      { path: "bella-login", element: <Login /> },
+      { path: "bella-signup", element: <SignUp /> },
+      { path: "bella-reset", element: <ResetPassword /> },
+      { path: "bella-update", element: <UpdatePassword /> },
     ],
   },
-
-
- 
-  {
-    
-    element: <BellaLandingPage />,
-    children: [
-      { path: "/bellas-landing", element: <BellasLandingHome /> },
-     
-    ],
-  },
-
-
-
-
- 
-
-
- 
-
 ]);
 
-export { router }; 
+export { router };

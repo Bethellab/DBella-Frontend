@@ -1,10 +1,11 @@
 import facial from '../../../assets/image/bellasbg.png';
+import best from '../../../assets/image/Sfort.png'
 
 const BellasLandingHeader = () => {
     return (
         <div className=" bg-[#f5f1fd] ">
-            <div className="py-12 relative ">
-                <div className=" h-[710px] mx-auto max-w-[1550px] ">
+            <div className="py-12 relative">
+                <div className=" h-[710px] lg:mx-24">
                     <div className="flex items-start justify-between mt-24">
                         <div className="w-[600px] ">
                             <span className="block text-[18px] font-semibold text-[#5e25cc] tracking-[0.18px] mb-2">
@@ -23,12 +24,13 @@ const BellasLandingHeader = () => {
                         </div>
 
 
-                        <div className=" flex justify-center md:justify-end mb-24">
-                            <div  className="bg-[#d9caf7] p-4  rounded-bl-full rounded-br-6xl">
+                        <div className=" flex justify-center md:justify-end mb-24 relative">
+                            <img src={best} className='absolute right-80 top-96 mt-24' />
+                            <div  className="bg-[#d9caf7] p-2  rounded-bl-full rounded-br-6xl">
                             <img
                                 src={facial}
                                 alt="hero"
-                                className=""
+                                className="ml-12"
                             />
 
                             </div>

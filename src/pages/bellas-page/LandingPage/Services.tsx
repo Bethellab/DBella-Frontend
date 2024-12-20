@@ -5,7 +5,7 @@ import makeup from '../../../assets/image/service4.png'
 
 const Services = () => {
     return (
-        <div className="py-12 mx-auto max-w-[1500px]">
+        <div className="py-12 lg:mx-24">
             <div>
                 <div className="flex flex-col items-center">
                     <h1 className="font-semibold text-lg ">SERVICES</h1>
@@ -26,7 +26,7 @@ const Services = () => {
 
                 </div>
 
-                <div className='flex justify-between mt-20'>
+                <div className='flex justify-between gap-4 mt-20'>
                     <div style={{
                         backgroundImage: `url(${hair})`,
 

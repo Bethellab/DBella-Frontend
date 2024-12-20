@@ -5,7 +5,7 @@ const Navbar = () => {
   const navigate = useNavigate()
   return (
     <div className='border-b py-2'>
-      <div className='flex items-center justify-between py-6 px-4 max-w-[1600px] mx-auto '>
+      <div className='flex items-center justify-between py-2 px-4  lg:mx-24 '>
 
         <div className='flex gap-8 items-center'>
           <img src={logo} alt='' />
@@ -31,7 +31,7 @@ const Navbar = () => {
 
 
         <div className='flex items-center gap-8'>
-          <button onClick={() => navigate('/bella-login')}>Log i</button>
+          <button onClick={() => navigate('/bella-login')}>Log in</button>
           <button onClick={() => navigate('/bella-signup')} className='bg-[#5E25CC] text-white p-2 rounded-full w-36'>Sign Up</button>
         </div>
       </div>

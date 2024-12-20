@@ -10,7 +10,7 @@ const SignUp = () => {
         >
             <div className="w-full px-4 sm:px-8 md:px-16">
 
-                <div className="w-full max-w-[700px] bg-white rounded-lg p-6 sm:p-8 md:p-10 relative overflow-hidden shadow-md mb-16 mx-auto">
+                <div className="w-full max-w-[700px] bg-white rounded-lg p-6 sm:p-8 md:p-10 relative overflow-hidden shadow-md my-24 mx-auto">
                     {/* Header Section */}
                     <div className="text-center mt-10 space-y-4">
                         <h1 className="text-4xl font-bold text-[#191515]">
