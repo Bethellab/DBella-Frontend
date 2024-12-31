@@ -1,31 +1,34 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Outlet } from "react-router-dom";
 
 import BellasLayout from "@/pages/bellas-page";
 import BellasHome from "@/pages/bellas-page/BellasHome";
 import Details from "@/pages/bellas-page/Details";
 import Success from "@/pages/bellas-page/Success";
-import Login from "@/pages/bellas-page/Login";
-import SignUp from "@/pages/bellas-page/SignUp";
-import ResetPassword from "@/pages/bellas-page/ResetPassword";
-import UpdatePassword from "@/pages/bellas-page/UpdatePassword";
+import Login from "@/pages/bellas-auth/Login";
+import SignUp from "@/pages/bellas-auth/SignUp";
+import ResetPassword from "@/pages/bellas-auth/ResetPassword";
+import UpdatePassword from "@/pages/bellas-auth/UpdatePassword";
 import BellaLandingPage from "@/pages/bellas-page/LandingPage/BellaLandingPage";
-import BellasLandingHome from "@/pages/bellas-page/LandingPage/BellasLandingHome";
+import BellasLandingHome from "@/pages/bellas-page/LandingPage/Home/BellasLandingHome";
+import About from "@/pages/bellas-page/LandingPage/About/About";
+import Contact from "@/pages/bellas-page/LandingPage/Contact/Contact";
 
 
 const router = createBrowserRouter([
-  // {
-   
-  //   element: <BellaLandingPage />,
-  //   // Catch errors here
-  //   children: [
-  //     { path: "/home", element: <BellasLandingHome /> },
-  //   ],
-  // },
   {
-    path: "/",
+   
+    element: <BellaLandingPage />,
+    children: [
+      { path: "/home", element: <BellasLandingHome /> },
+      { path: "/about", element: <About /> },
+      { path: "/contact", element: <Contact /> },
+    ],
+  },
+
+  {
     element: <BellasLayout />,
     children: [
-      { path: "/bellas-home", element: <BellasHome /> },
+      { path: "/", element: <BellasHome /> },
       {path: "/details/:id", element : <Details /> },
       {path: "/success", element : <Success/> },
       {path: "/bella-login", element : <Login /> },
@@ -33,12 +36,11 @@ const router = createBrowserRouter([
       {path: "/bella-reset", element : <ResetPassword /> },
       {path: "/bella-update", element : <UpdatePassword /> },
 
-
-
-
     ],
   },
 
+
+ 
 
 
 

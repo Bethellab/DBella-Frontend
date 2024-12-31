@@ -1,9 +1,9 @@
 import hair from '../../assets/image/hair_img.png';
 import manicure from '../../assets/image/manicure.png';
 import facial from '../../assets/image/facial.png';
-import makeup from '../../assets/image/makeup.png'
-import wax from '../../assets/image/wax.png'
-import massage from '../../assets/image/massage.png'
+import makeup from '../../assets/image/makeup.png';
+import wax from '../../assets/image/wax.png';
+import massage from '../../assets/image/massage.png';
 import { useNavigate } from 'react-router-dom';
 
 const BellasHome = () => {
@@ -11,28 +11,28 @@ const BellasHome = () => {
 
     const services = [
         {
-          id: "hair",
-          title: "Hair Styling & Treatment",
-          description:
-            "From stylish cuts to color treatments and blowouts, our expert stylists will give your hair the attention it deserves.",
-          price: "₦3,000",
-          image: hair,
+            id: "hair",
+            title: "Hair Styling & Treatment",
+            description:
+                "From stylish cuts to color treatments and blowouts, our expert stylists will give your hair the attention it deserves.",
+            price: "₦3,000",
+            image: hair,
         },
         {
-          id: "manicure",
-          title: "Manicure & Pedicure",
-          description:
-            "Pamper your hands and feet with a relaxing manicure and pedicure. Includes nail shaping, cuticle care, and polish in a range of colors.",
-          price: "₦3,000",
-          image: manicure,
+            id: "manicure",
+            title: "Manicure & Pedicure",
+            description:
+                "Pamper your hands and feet with a relaxing manicure and pedicure. Includes nail shaping, cuticle care, and polish in a range of colors.",
+            price: "₦3,000",
+            image: manicure,
         },
         {
-          id: "facial",
-          title: "Facial Treatments",
-          description:
-            "Rejuvenate your skin with our luxurious facial treatments, tailored for hydration, anti-aging, or deep cleansing.",
-          price: "₦3,000",
-          image: facial,
+            id: "facial",
+            title: "Facial Treatments",
+            description:
+                "Rejuvenate your skin with our luxurious facial treatments, tailored for hydration, anti-aging, or deep cleansing.",
+            price: "₦3,000",
+            image: facial,
         },
         {
             id: "makeup",
@@ -58,44 +58,39 @@ const BellasHome = () => {
                 "Relieve stress and muscle tension with our therapeutic massage services, from Swedish to deep tissue.",
             price: "₦3,000",
         },
-      ];
-    
+    ];
 
-    const handleViewDetails = (service) => {
+    const handleViewDetails = (service: any) => {
         navigate(`/details/${service.id}`, { state: service });
-      };
+    };
+
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 py-12  lg:mx-24">
-            {/* Array of Card Data */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 py-12 lg:mx-24">
             {services.map((card, index) => (
                 <div
+                     onClick={() => handleViewDetails(card)}
                     key={index}
                     style={{
                         backgroundImage: `url(${card.image})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                     }}
-                    className="relative h-[460px] bg-white rounded-lg border border-gray-200 overflow-hidden shadow-lg transition-transform transform hover:scale-105"
+                    className="relative h-[320px] sm:h-[360px] md:h-[400px] lg:h-[460px] bg-white rounded-lg border border-gray-200 overflow-hidden shadow-lg transition-transform transform hover:scale-105"
                 >
-                    {/* Gradient Overlay */}
-                    {/* <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" /> */}
-
-                    {/* Content Container */}
-                    <div className="absolute bottom-0 w-full p-6 text-white z-10">
-                        {/* Price Section */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+                    <div className="absolute bottom-0 w-full p-4 sm:p-6 text-white z-10">
                         <div className="flex gap-2">
                             <span className="text-sm font-light font-['Cormorant_Garamond']">From</span>
-                            <span className="text-2xl font-bold font-['Cormorant_Garamond']">{card.price}</span>
+                            <span className="text-lg sm:text-2xl font-bold font-['Cormorant_Garamond']">{card.price}</span>
                         </div>
-
-                        {/* Title */}
-                        <h3 className="mt-2 text-3xl font-bold  font-['Cormorant_Garamond'] whitespace-nowrap">{card.title}</h3>
-
-                        {/* Description */}
-                        <p className="mt-1 text-md text-gray-300">{card.description}</p>
-
-                        {/* Button */}
-                        <button  onClick={() => handleViewDetails(card)} className="mt-4 inline-flex items-center gap-2  py-2 border-b text-white  font-semibold shadow-md">
+                        <h3 className="mt-2 text-lg sm:text-2xl md:text-3xl font-bold font-['Cormorant_Garamond']">
+                            {card.title}
+                        </h3>
+                        <p className="mt-1 text-xs sm:text-sm md:text-md text-gray-300">{card.description}</p>
+                        <button
+                            onClick={() => handleViewDetails(card)}
+                            className="mt-4 inline-flex items-center gap-2 py-2 border-b text-white font-semibold shadow-md text-xs sm:text-sm"
+                        >
                             View Service
                             <svg
                                 width="16"

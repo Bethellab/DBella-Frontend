@@ -28,7 +28,7 @@ const Details = () => {
 
     const [selectedDate, setSelectedDate] = useState(new Date());
 
-    const handleDateChange = (date) => {
+    const handleDateChange = (date: any) => {
         setSelectedDate(date);
     };
     const { state } = useLocation();
@@ -178,7 +178,7 @@ const Details = () => {
                         className="w-full lg:w-[700px] h-[400px] lg:h-[800px] rounded-lg object-cover"
                     />
 
-                    <div className="lg:my-1 flex-1 w-[508px]">
+                    <div className="lg:my-1 flex-1 w-full lg:w-[508px]">
                         <h1 className="text-4xl font-bold mb-6 font-['Cormorant_Garamond']">
                             {title}
                         </h1>
@@ -240,7 +240,7 @@ const Details = () => {
                                                 onChange={() => setSelectedCard(service.title)}
                                                 className="appearance-none w-4 h-4 rounded-full border border-gray-400 checked:border-[#5e25cc] focus:ring-2 focus:ring-[#5e25cc] cursor-pointer"
                                             />
-                                            <span className="text-lg font-bold text-gray-800">
+                                            <span className="text-lg font-bold text-gray-800 font-['Cormorant_Garamond']">
                                                 {service.title}
                                             </span>
                                         </div>
@@ -258,7 +258,7 @@ const Details = () => {
 
 
                         <div className="text-center">
-                            <button onClick={toggleModal} className="bg-[#5e25cc] w-full  rounded-full py-2 text-white text-lg font-semibold">
+                            <button onClick={toggleModal} className="bg-[#5e25cc] w-full font-['Cormorant_Garamond'] rounded-full py-2 text-white text-lg font-semibold">
                                 Book Service - {price}
                             </button>
                         </div>
@@ -285,7 +285,7 @@ const Details = () => {
                     {reviews.map((review, index) => (
                         <div
                             key={index}
-                            className="flex w-[568px] pt-2 pb-2 gap-4 items-start"
+                            className="flex w-full lg:w-[568px] pt-2 pb-2 gap-4 items-start"
                         >
                             <img src={review.image} className="w-10 h-10 rounded-full" alt={review.name} />
                             <div className="flex flex-col gap-2 items-start grow">
@@ -309,7 +309,7 @@ const Details = () => {
                                         ))}
                                     </div>
                                 </div>
-                                <span className="w-[496px] text-md text-[#404245]">
+                                <span className="lg:w-[496px] text-md text-[#404245]">
                                     {review.feedback}
                                 </span>
                             </div>
@@ -360,7 +360,7 @@ const Details = () => {
                                 {/* User Details */}
                                 <div className="py-2 border-b px-2">
                                     <h1 className="text-lg font-medium text-gray-800">User Details</h1>
-                                    <div className="flex  gap-4 mt-4">
+                                    <div className="flex flex-col lg:flex-row  gap-4 mt-4">
                                         <div className="flex flex-col gap-2">
                                             <label className="text-sm text-gray-600">Full Name</label>
                                             <input
@@ -724,7 +724,7 @@ const Details = () => {
                         {modalStep === "orderSummary" && (
                             <>
                                 <div className="py-2 px-2">
-                                    <div className="py-4 flex items-start gap-4 border-b">
+                                    <div className="py-4 flex  items-start gap-4 border-b">
                                         <img src={image} className="w-28 rounded-lg" />
                                         <div className="space-y-2">
                                             <h1 className="text-xl">{title}</h1>
@@ -758,39 +758,41 @@ const Details = () => {
 
                                         </div>
                                     </div>
-                                    <div className="py-4  border-b">
+
+                                    <div className="py-4 border-b space-y-4">
                                         <div className="flex justify-between items-center">
-                                            <h1>Booking Information</h1>
-                                            <span className="text-[#5E25CC] underline">Edit Schedule</span>
+                                            <h1 className="text-lg font-medium">Booking Information</h1>
+                                            <span className="text-[#5E25CC] underline text-sm lg:text-base">Edit Schedule</span>
                                         </div>
-                                        <div className=" flex items-center gap-20 mt-6">
-                                            <div className="flex flex-col ">
+                                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-20">
+                                            <div>
                                                 <span className="text-gray-600">Date: </span>
                                                 <h1 className="text-lg">Monday, 9 November, 2024</h1>
                                             </div>
-                                            <div className="flex flex-col ">
+                                            <div>
                                                 <span className="text-gray-600">Time: </span>
                                                 <h1 className="text-lg">12:30 pm</h1>
                                             </div>
                                         </div>
 
-                                        <div className=" flex items-center gap-40 mt-6">
-                                            <div className="flex flex-col ">
-                                                <span className="text-gray-600">Service Type: </span>
-                                                <h1 className="text-lg">Hydrating Facial</h1>
+                                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-20">
+                                            <div>
+                                            <span className="text-gray-600">Service Type:</span>
+                                            <h1 className="text-lg">Hydrating Facial</h1>
                                             </div>
-                                            <div className="flex flex-col gap-2 ">
-                                                <span className="text-gray-600">Specialist: </span>
-                                                <div className="flex items-center gap-4">
+                                            <div>
+                                                <span className="text-gray-600">Specialist:</span>
+                                                <div className="flex items-center gap-4 mt-2">
                                                     <img src={gallery_two} className="w-10 h-10 rounded-full" />
                                                     <div>
                                                         <h1>Lily Grace</h1>
-                                                        <span className="text-gray-600">Hair Stylist</span>
+                                                        <span className="text-gray-600 text-sm">Hair Stylist</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div className="py-6  border-b">
                                         <h1 className="font-medium text-lg">Payment Type</h1>
                                         <div className="mt-2 space-y-4">
@@ -824,21 +826,21 @@ const Details = () => {
                                         <div className="flex items-center justify-between">
                                             <span className="text-gray-600">Subtotal</span>
                                             <span className="text-gray-600">#7500</span>
-                                            
+
                                         </div>
                                     </div>
                                     <div className="py-2">
                                         <div className="flex items-center justify-between">
                                             <span className="font-medium">Total</span>
                                             <span className="font-medium">#7500</span>
-                                            
+
                                         </div>
                                     </div>
                                     <div className="text-center mt-4">
-                                    <button onClick={() => navigate('/success')} className="bg-[#5e25cc] w-full  rounded-full py-2 text-white">
-                                    Book Appointment
-                                    </button>
-                                </div>
+                                        <button onClick={() => navigate('/success')} className="bg-[#5e25cc] w-full  rounded-full py-2 text-white">
+                                            Book Appointment
+                                        </button>
+                                    </div>
                                 </div>
                             </>
                         )}
