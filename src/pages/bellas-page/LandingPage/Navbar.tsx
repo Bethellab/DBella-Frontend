@@ -1,4 +1,4 @@
-import {  useNavigate } from 'react-router-dom'
+import {  NavLink, useNavigate } from 'react-router-dom'
 import logo from '../../../assets/image/bellas-logo.png'
 
 const Navbar = () => {
@@ -10,19 +10,19 @@ const Navbar = () => {
         <div className='flex gap-8 items-center'>
           <img src={logo} alt='' className='w-8' />
           <div className='lg:flex list-none items-center gap-8 hidden'>
-            <a href='/'>
+            <NavLink to="/">
               <li className='py-1 whitespace-nowrap'>Home</li>
-            </a>
-            <a href="/">
+            </NavLink>
+            <NavLink to="/about">
               <li className='py-1 whitespace-nowrap'>About</li>
 
-            </a>
+            </NavLink>
             <a href="/">
               <li className='py-1 whitespace-nowrap'>Explore Service</li>
             </a>
-            <a href="/">
+            <NavLink to="/contact">
               <li className='py-1 whitespace-nowrap'>Contact Us</li>
-            </a>
+            </NavLink>
 
 
           </div>

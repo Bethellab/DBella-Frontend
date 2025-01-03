@@ -1,4 +1,4 @@
-import DashboardTabs from "@/components/Dashboard/DashboardTabs"
+
 import useDashboard from "./useDashboard";
 import { RenderIf } from "@/components/hoc";
 import Overview from "@/components/Dashboard/Overview/Overview";
@@ -9,15 +9,11 @@ import Profile from "@/components/Dashboard/Profile/Profile";
 
 
 const Dashboard = () => {
-    const { currentTab, links } = useDashboard();
+    const { currentTab } = useDashboard();
   return (
     <div className="px-24 mt-4">
             <div>
-                {/* <DashboardTabs
-                    links={links}
-                    currentTab={currentTab}
-                 
-                /> */}
+               
             </div>
 
             <div>

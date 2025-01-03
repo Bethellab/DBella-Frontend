@@ -109,8 +109,7 @@ export default function useOrders()  {
             return " text-green-600 text-md text-center";
           case "Cancelled":
             return " text-red-600 text-md text-center";
-          case "Cancelled":
-        return " text-gray-900  text-center";
+      
           default:
             return " text-gray-800";
         }
