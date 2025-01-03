@@ -1,6 +1,8 @@
 import { useState } from "react";
 import adminuser from "../../../../assets/image/adminuser.png";
 import RescheduleModal from "./RescheduleModal";
+import SpecialistModal from "./SpecialistModal";
+import trophy from '../../../../assets/image/trophy.png'
 
 
 const appointments = [
@@ -45,6 +47,31 @@ const appointments = [
 const Upcoming = () => {
     const [openDropdown, setOpenDropdown] = useState<number | null>(null);
     const [modalData, setModalData] = useState(null);
+    const [modalSpecialistData, setModalSpecialistData] = useState(null);
+    const [modalStep, setModalStep] = useState("input");
+
+    const [isCancelModalOpen, setIsCancelModalOpen] = useState(false);
+ 
+
+    // Open the cancel modal and reset the modal step to 'input'
+    const handleCancelClick = () => {
+        setModalStep("input"); // Reset modal step to 'input'
+        setIsCancelModalOpen(true);
+    };
+
+    const handleSubmitReview = () => {
+        setModalStep("confirmation");
+    };
+
+
+
+    const handleCancelClose = () => {
+        setIsCancelModalOpen(false);
+    
+    };
+
+   
+
 
     const handleDropdownToggle = (index: number) => {
         setOpenDropdown(openDropdown === index ? null : index);
@@ -54,8 +81,16 @@ const Upcoming = () => {
         setModalData(appointment);
     };
 
+    const openSpecialistModal = (appointment: any) => {
+        setModalSpecialistData(appointment);
+    };
+
     const closeModal = () => {
         setModalData(null);
+    };
+
+    const closeSpecialistModal = () => {
+        setModalSpecialistData(null);
     };
 
     return (
@@ -147,10 +182,13 @@ const Upcoming = () => {
                                             }} className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                                                 Reschedule
                                             </li>
-                                            <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                                            <li onClick={() => {
+                                                openSpecialistModal(appointment);
+                                                handleDropdownToggle(index);
+                                            }} className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                                                 Change Specialist
                                             </li>
-                                            <li className="px-4 py-2 hover:bg-gray-100 text-red-500 cursor-pointer">
+                                            <li onClick={handleCancelClick} className="px-4 py-2 hover:bg-gray-100 text-red-500 cursor-pointer">
                                                 Cancel Booking
                                             </li>
                                         </ul>
@@ -169,8 +207,8 @@ const Upcoming = () => {
 
             </div>
 
-             {/* Overlay */}
-             {modalData && (
+            {/* Overlay */}
+            {modalData && (
                 <div
                     className="fixed inset-0 bg-black opacity-50 z-40"
                     onClick={closeModal}
@@ -178,29 +216,157 @@ const Upcoming = () => {
             )}
             {/* Modal */}
             {modalData && (
-               
-                    <div className="fixed overflow-y-scroll top-0 right-0 w-full max-w-[570px] h-full bg-white shadow-lg z-50">
-                        <div className="flex justify-between items-center border-b py-3 px-4 ">
-                            <h2 className="text-lg font-semibold">Reschedule Appointment</h2>
 
-                            {/* Add form fields or details here */}
-                            <button
+                <div className="fixed overflow-y-scroll top-0 right-0 w-full max-w-[570px] h-full bg-white shadow-lg z-50">
+                    <div className="flex justify-between items-center border-b py-3 px-4 ">
+                        <h2 className="text-lg font-semibold">Reschedule Appointment</h2>
 
-                                onClick={closeModal}
-                            >
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.99998 7.11562L15.6 0.515625L17.4853 2.40096L10.8853 9.00096L17.4853 15.601L15.5986 17.4863L8.99865 10.8863L2.39998 17.4863L0.514648 15.5996L7.11465 8.99962L0.514648 2.39963L2.39998 0.516958L8.99998 7.11562Z" fill="#191616" />
-                                </svg>
+                        {/* Add form fields or details here */}
+                        <button
 
-                            </button>
-                        </div>
-                        <div>
-                            <RescheduleModal />
-                        </div>
+                            onClick={closeModal}
+                        >
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.99998 7.11562L15.6 0.515625L17.4853 2.40096L10.8853 9.00096L17.4853 15.601L15.5986 17.4863L8.99865 10.8863L2.39998 17.4863L0.514648 15.5996L7.11465 8.99962L0.514648 2.39963L2.39998 0.516958L8.99998 7.11562Z" fill="#191616" />
+                            </svg>
 
+                        </button>
                     </div>
-                
+                    <div>
+                        <RescheduleModal />
+                    </div>
+
+                </div>
+
             )}
+
+            {/* Overlay */}
+            {modalSpecialistData && (
+                <div
+                    className="fixed inset-0 bg-black opacity-50 z-40"
+                    onClick={closeSpecialistModal}
+                ></div>
+            )}
+
+            {modalSpecialistData && (
+
+                <div className="fixed overflow-y-scroll  top-0 right-0 w-full max-w-[570px] h-full bg-white shadow-lg z-50">
+                    <div className="flex justify-between items-center border-b py-3 px-4 ">
+                        <h2 className="text-lg font-semibold">Reschedule Appointment</h2>
+
+                        {/* Add form fields or details here */}
+                        <button
+
+                            onClick={closeSpecialistModal}
+                        >
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.99998 7.11562L15.6 0.515625L17.4853 2.40096L10.8853 9.00096L17.4853 15.601L15.5986 17.4863L8.99865 10.8863L2.39998 17.4863L0.514648 15.5996L7.11465 8.99962L0.514648 2.39963L2.39998 0.516958L8.99998 7.11562Z" fill="#191616" />
+                            </svg>
+
+                        </button>
+                    </div>
+                    <div className="mb-6">
+                        <SpecialistModal />
+                    </div>
+
+                </div>
+
+            )}
+
+
+            <>
+                {/* Cancel Modal */}
+                {isCancelModalOpen && (
+                    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                        <div className="w-[500px] pb-8 bg-white rounded-lg relative ">
+                            <div className="w-[420px] mx-auto mt-4">
+                                {/* Close Button */}
+                                <div
+                                    onClick={handleCancelClose}
+                                    className="flex items-end justify-end p-2 cursor-pointer"
+                                >
+                                    <svg
+                                        width="14"
+                                        height="14"
+                                        viewBox="0 0 14 14"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M6.99999 5.58672L11.95 0.636719L13.364 2.05072L8.41399 7.00072L13.364 11.9507L11.949 13.3647L6.99899 8.41472L2.04999 13.3647L0.635986 11.9497L5.58599 6.99972L0.635986 2.04972L2.04999 0.637719L6.99999 5.58672Z"
+                                            fill="black"
+                                        />
+                                    </svg>
+                                </div>
+
+                                {modalStep === "input" && (
+                                    <>
+                                       
+                                        {/* Modal Title */}
+                                        <h2 className="text-2xl font-bold text-gray-900 text-center font-['Cormorant_Garamond']">
+                                            Cancel Appointment
+                                        </h2>
+
+                                        {/* Modal Description */}
+                                        <p className="text-sm text-gray-600 mt-2 text-center font-['Open_Sans']">
+                                            We're really sorry to see you go! Could you share your reasons for canceling this appointment?
+                                        </p>
+
+                                        {/* Cancellation Reasons */}
+                                        <div className="mt-4">
+                                            <label
+                                                htmlFor="cancellation-reason"
+                                                className="block text-sm font-semibold text-gray-500 mb-2 font-['Open_Sans']"
+                                            >
+                                                Cancellation Reasons
+                                            </label>
+                                            <textarea
+                                                id="cancellation-reason"
+                                                className="w-full h-40 p-4 text-sm text-gray-700 placeholder-gray-400 border border-gray-200 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                                                placeholder="Tell us how we can serve you better..."
+                                            />
+                                        </div>
+
+                                        {/* Submit Button */}
+                                        <button
+                                            onClick={handleSubmitReview}
+                                            className="w-full mt-8 py-2 bg-[#5E25CC] text-white rounded-full text-sm font-medium capitalize hover:bg-purple-800 transition duration-200"
+                                        >
+                                            Submit for Review
+                                        </button>
+                                    </>
+                                )}
+
+                                {modalStep === "confirmation" && (
+                                    <div className="flex flex-col items-center justify-center">
+
+                                    <img src={trophy} className="flex items-center justify-center"/>
+                                       
+
+                                        <div className="mt-10">
+                                              {/* Confirmation Title */}
+                                        <h2 className="text-2xl font-bold text-gray-900 text-center font-['Cormorant_Garamond']">
+                                        Your Cancellation is under review
+                                        </h2>
+
+                                        {/* Confirmation Message */}
+                                        <p className="text-sm text-gray-600 mt-2 text-center font-['Open_Sans']">
+                                        Your cancellation request has been received. Our admin team will review it and process a refund if eligible. Thank you for reaching out, and we look forward to serving you again!
+                                        </p>
+
+                                        </div>
+                                      
+
+                                        
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </>
+
+
         </div>
     );
 };

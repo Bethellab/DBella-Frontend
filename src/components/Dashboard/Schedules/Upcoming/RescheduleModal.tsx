@@ -27,7 +27,7 @@ const RescheduleModal = () => {
                 <Calendar
                     onChange={handleDateChange}
                     value={selectedDate}
-                    className="react-calendar !border-none rounded-md  !text-gray-600  !w-[800px]"
+                    className="react-calendar !border-none rounded-full  !text-gray-600  !w-[600px]"
                 />
 
             </div>
