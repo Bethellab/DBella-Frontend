@@ -55,65 +55,52 @@ const services = [
 
 const Overview = () => {
   return (
-    <div className="px-24 mb-4">
-      <div className='flex items-start gap-6'>
-        <div className="space-y-4">
-          <div className=" w-[478px] h-[422px] bg-white rounded-lg border-2 border-gray-200 overflow-y-scroll ">
-            {/* Header */}
+    <div className="lg:px-24 mb-4">
+      <div className="flex flex-col lg:flex-row items-start gap-6">
+        <div className="space-y-6 w-full lg:w-[700px]">
+          <div className="w-full bg-white rounded-lg border-2 border-gray-200 overflow-y-auto">
             <div className="flex justify-between items-center p-4 border-b border-gray-200">
-              <span className="text-lg font-bold text-gray-900 font-['Cormorant_Garamond']">Upcoming Appointments</span>
-              <div className="flex items-center gap-2 border-b border-gray-400">
+              <span className="text-lg font-bold text-gray-900 font-['Cormorant_Garamond']">
+                Upcoming Appointments
+              </span>
+              <div className="flex items-center gap-2">
                 <span className="text-sm font-semibold text-gray-600">See All Schedules</span>
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6.96203 0.1782V1.98839C6.96203 2.09119 7.00647 2.18952 7.08425 2.2588L12.6907 7.15078L0.177832 7.15078C0.0800581 7.15078 6.10309e-05 7.23123 6.10352e-05 7.32956L6.10938e-05 8.67044C6.10981e-05 8.76877 0.0800582 8.84922 0.177832 8.84922H12.6907L7.08425 13.7412C7.00647 13.8082 6.96203 13.9066 6.96203 14.0116V15.8218C6.96203 15.9738 7.14202 16.0565 7.25535 15.9559L15.755 8.53859C15.832 8.47154 15.8936 8.38865 15.9359 8.29553C15.9782 8.20241 16.0001 8.10125 16.0001 7.99888C16.0001 7.89652 15.9782 7.79535 15.9359 7.70223C15.8936 7.60912 15.832 7.52623 15.755 7.45918L7.25535 0.0441121C7.1398 -0.0564539 6.96203 0.0262337 6.96203 0.1782Z" fill="#414246" />
+                <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                  <path d="M6.96 0.18V1.99c0 .1.05.2.12.27l5.61 4.89H.18C.08 7.15 0 7.23 0 7.33v1.34c0 .1.08.18.18.18h12.61l-5.61 4.89c-.08.07-.12.17-.12.27v1.81c0 .15.18.23.29.14l8.5-7.42c.08-.07.14-.15.18-.25.03-.1.06-.2.06-.3 0-.1-.03-.2-.06-.3-.04-.1-.1-.18-.18-.25L7.25.04c-.12-.1-.29-.02-.29.14z" fill="#414246" />
                 </svg>
-
               </div>
             </div>
 
-            {/* Greeting */}
-            <div className="px-6 py-4">
+            <div className="px-4 sm:px-6 py-4">
               <h2 className="text-2xl font-bold font-['Cormorant_Garamond']">
                 Hey <span className="text-green-500">Martha</span> 👋🏽,
               </h2>
             </div>
 
-            {/* Appointment List */}
-            <div className="space-y-4 px-6 pb-4">
+            <div className="space-y-4 px-4 sm:px-6 pb-4">
               {appointments.map((appointment, index) => (
-                <div
-                  key={index}
-                  className="flex justify-between items-center bg-gray-50 rounded-lg border border-purple-200 p-4"
-                >
-                  <div className='flex flex-col gap-4'>
+                <div key={index} className="flex flex-col sm:flex-row justify-between items-center bg-gray-50 rounded-lg border border-purple-200 p-4">
+                  <div className="flex flex-col gap-4">
                     <h3 className="text-lg font-bold font-['Cormorant_Garamond']">{appointment.title}</h3>
-
-                    <div>
-                      <div className='flex items-center gap-4' >
-                        <div className="w-8 h-8 rounded-full bg-cover bg-no-repeat" style={{ backgroundImage: `url(${appointment.avatar})` }}></div>
-                        <div>
-                          <p className="text-sm text-gray-600">{appointment.client}</p>
-                          <p className="text-xs text-gray-500 capitalize">{appointment.service}</p>
-
-                        </div>
-
-
+                    <div className="flex items-center gap-4">
+                      <div className="w-8 h-8 rounded-full bg-cover bg-no-repeat" style={{ backgroundImage: `url(${appointment.avatar})` }}></div>
+                      <div>
+                        <p className="text-sm text-gray-600">{appointment.client}</p>
+                        <p className="text-xs text-gray-500 capitalize">{appointment.service}</p>
                       </div>
-
-
                     </div>
                   </div>
-                  <div className="text-right space-y-8">
+                  <div className="text-right space-y-2 sm:space-y-8 mt-4 sm:mt-0">
                     <p className="text-md font-bold text-gray-900 font-['Cormorant_Garamond']">{appointment.date}</p>
-                    <p className="text-sm font-semibold text-gray-900 ">{appointment.time}</p>
-
+                    <p className="text-sm font-semibold text-gray-900">{appointment.time}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className=" w-[478px] h-[368px] bg-white rounded-lg border-2 border-[#eaeaea] relative  overflow-y-scroll">
+
+          <div className="w-full bg-white rounded-lg border-2 border-gray-200 overflow-y-auto">
             {/* Header Section */}
             <div className="flex w-full px-6 pt-4 pb-2 justify-between items-start border border-[#eaeaea]">
               <span className="text-[18px]  leading-[24px] text-[#191515] font-[Cormorant_Garamond]">
@@ -132,7 +119,7 @@ const Overview = () => {
 
             <div>
               {services.map((service, index) => (
-                <div key={index} className=" w-[430px] p-4 justify-between items-start border-b border-[#ded3f4] mx-auto">
+                <div key={index} className="  p-4 justify-between items-start border-b border-[#ded3f4] mx-auto">
 
 
 
@@ -202,94 +189,132 @@ const Overview = () => {
 
 
             </div>
-
-
-
-
-
           </div>
-
         </div>
 
-        <div>
+
+        <div className='w-full'>
+          <div className="flex flex-col lg:flex-row w-full gap-6">
+            {/* Order Count Card */}
+            <div className="flex flex-col w-full lg:w-[350px] min-h-[150px] bg-white rounded-md border border-gray-200">
+              <div className="flex flex-col gap-1 items-start p-4 border-b border-gray-200">
+                <span className="text-base sm:text-lg font-bold font-['Cormorant_Garamond'] text-gray-800">
+                  Order Count
+                </span>
+              </div>
+              <span className="block text-2xl sm:text-4xl font-semibold font-['Cormorant_Garamond'] text-black mt-4 sm:mt-6 mx-4 text-center lg:text-left">
+                402
+              </span>
+              <div className="flex items-center justify-center w-full py-3 bg-gray-50 border border-gray-200  sm:mt-6">
+                <span className="text-xs sm:text-sm font-normal text-gray-600 text-center">
+                  You are in our top 1% user!
+                </span>
+              </div>
+            </div>
+
+           
+
+
+            {/* Last 2 Orders Card */}
+            <div className="flex flex-col w-full  bg-white rounded-md border border-gray-200">
+              <div className="flex flex-col p-3 gap-1 items-start border-b border-gray-200">
+                <span className="text-base sm:text-lg font-bold font-['Cormorant_Garamond'] text-gray-900">
+                  Last 2 Orders
+                </span>
+              </div>
+              <div className="flex flex-wrap justify-between items-start px-4 sm:px-6 mt-3 sm:mt-6 gap-4">
+                {/* Order 1 */}
+                <div className="flex flex-col gap-2 w-full sm:w-[210px]">
+                  <div className="flex flex-col gap-1">
+                    <span className="text-sm sm:text-lg font-semibold font-['Cormorant_Garamond'] text-gray-900">
+                      Hydrating Facial Section
+                    </span>
+                    <span className="text-xs sm:text-base font-semibold font-['Cormorant_Garamond'] text-gray-600">
+                      Facial Treatment
+                    </span>
+                  </div>
+                  <div className="flex gap-2 items-center">
+                    <img
+                      src={adminuser}
+                      alt="Admin User"
+                      className="w-8 h-8 sm:w-10 sm:h-10 bg-cover bg-center rounded-full"
+                    />
+                    <div className="flex flex-col gap-0.5">
+                      <span className="text-xs sm:text-sm font-semibold text-gray-900 font-open-sans">
+                        Olivia Main
+                      </span>
+                      <div className="flex items-center gap-1 border-b-2 border-[#93CC25] ">
+                        <span className="text-[#93CC25] font-semibold text-xs sm:text-base font-['Cormorant_Garamond'] capitalize whitespace-nowrap">
+                          Leave Your Feedback
+                        </span>
+                        <svg
+                          width="16"
+                          height="15"
+                          viewBox="0 0 18 17"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M8.99996 13.392L14.15 16.5003L12.7833 10.642L17.3333 6.70033L11.3416 6.19199L8.99996 0.666992L6.65829 6.19199L0.666626 6.70033L5.21663 10.642L3.84996 16.5003L8.99996 13.392Z"
+                            fill="#93CC25"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Order 2 */}
+                <div className="flex flex-col gap-2 w-full sm:w-[210px]">
+                  <div className="flex flex-col gap-1">
+                    <span className="text-sm sm:text-lg font-semibold font-['Cormorant_Garamond'] text-gray-900">
+                      Acne Treatment
+                    </span>
+                    <span className="text-xs sm:text-base font-semibold font-['Cormorant_Garamond'] text-gray-600">
+                      Facial Treatment
+                    </span>
+                  </div>
+                  <div className="flex gap-2 items-center">
+                    <img
+                      src={adminuser}
+                      alt="Admin User"
+                      className="w-8 h-8 sm:w-10 sm:h-10 bg-cover bg-center rounded-full"
+                    />
+                    <div className="flex flex-col gap-0.5">
+                      <span className="text-xs sm:text-sm font-semibold text-gray-900 font-open-sans">
+                        Mia Davis
+                      </span>
+                      <div className="flex items-center gap-1">
+                        <svg
+                          width="16"
+                          height="15"
+                          viewBox="0 0 18 17"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M8.99996 13.392L14.15 16.5003L12.7833 10.642L17.3333 6.70033L11.3416 6.19199L8.99996 0.666992L6.65829 6.19199L0.666626 6.70033L5.21663 10.642L3.84996 16.5003L8.99996 13.392Z"
+                            fill="#120728"
+                          />
+                        </svg>
+                        <span className="text-xs sm:text-base font-semibold text-gray-800 font-['Cormorant_Garamond'] capitalize whitespace-nowrap">
+                          Feedback Given
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div>
-            <div className='flex w-full gap-6'>
-              <div className=" w-[220px] h-[178px] bg-white rounded-md border border-gray-200 ">
-                <div className="flex flex-col gap-1 items-start p-4 border-b border-gray-200">
-                  <span className="text-lg font-bold font-['Cormorant_Garamond'] text-gray-800">Order Count</span>
-
-                </div>
-                <span className="block text-4xl font-semibold font-['Cormorant_Garamond'] text-black mt-8 ml-6">402</span>
-                <div className="flex items-center justify-center w-full py-2 bg-gray-50 border border-gray-200 mt-7">
-                  <span className="text-sm font-normal text-gray-600">You are in our top 1% user!</span>
-                </div>
-              </div>
-
-              <div className=" w-[560px] py-2  bg-white rounded-md border border-gray-200 ">
-                <div className="flex flex-col p-3 gap-1 items-start border-b border-gray-200">
-                  <span className="text-lg font-bold font-['Cormorant_Garamond'] text-gray-900">Last 2 Orders</span>
-                </div>
-                <div className="flex justify-between items-center px-6 mt-3">
-                  {/* Order 1 */}
-                  <div className="flex flex-col gap-3 w-[210px]">
-                    <div className="flex flex-col gap-1">
-                      <span className="text-lg font-semibold font-['Cormorant_Garamond'] text-gray-900">Hydrating Facial Section</span>
-                      <span className="text-base font-semibold font-['Cormorant_Garamond'] text-gray-600">Facial Treatment</span>
-                    </div>
-                    <div className="flex gap-2 items-center">
-                      <img
-                        src={adminuser}
-                        className="w-10 h-10 bg-cover bg-center rounded-full"
-
-                      />
-                      <div className="flex flex-col gap-0.5">
-                        <span className="text-sm font-semibold text-gray-900 font-open-sans">Olivia Main</span>
-                        <div className="flex items-center gap-1 border-b-2 border-[#93CC25] pt-1">
-                          <span className="text-[#93CC25] font-semibold text-base font-['Cormorant_Garamond']  capitalize whitespace-nowrap">Leave Your Feedback</span>
-                          <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8.99996 13.392L14.15 16.5003L12.7833 10.642L17.3333 6.70033L11.3416 6.19199L8.99996 0.666992L6.65829 6.19199L0.666626 6.70033L5.21663 10.642L3.84996 16.5003L8.99996 13.392Z" fill="#93CC25" />
-                          </svg>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Order 2 */}
-                  <div className="flex flex-col gap-4 w-[177px]">
-                    <div className="flex flex-col gap-1">
-                      <span className="text-lg font-semibold font-['Cormorant_Garamond'] text-gray-900">Acne Treatment</span>
-                      <span className="text-base font-semibold font-['Cormorant_Garamond'] text-gray-600">Facial Treatment</span>
-                    </div>
-                    <div className="flex gap-2 items-center">
-                      <img
-                        src={adminuser}
-                        className="w-10 h-10 bg-cover bg-center rounded-full"
-
-                      />
-                      <div className="flex flex-col gap-0.5">
-                        <span className="text-sm font-semibold text-gray-900 font-open-sans">Mia Davis</span>
-                        <div className="flex items-center gap-1">
-                          <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8.99996 13.392L14.15 16.5003L12.7833 10.642L17.3333 6.70033L11.3416 6.19199L8.99996 0.666992L6.65829 6.19199L0.666626 6.70033L5.21663 10.642L3.84996 16.5003L8.99996 13.392Z" fill="#120728" />
-                          </svg>
-
-                          <span className="text-base font-semibold text-gray-800 font-['Cormorant_Garamond'] capitalize whitespace-nowrap">Feedback Given</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-            </div>
-            <div>
-              <RecentTransaction />
-
-            </div>
+            <RecentTransaction />
           </div>
-
         </div>
+
+
+
       </div>
     </div>
   )

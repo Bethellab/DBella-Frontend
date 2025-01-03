@@ -14,7 +14,7 @@ const Transactions = () => {
 
   const MotionTr = motion.tr;
   return (
-    <div className="px-24">
+    <div className="lg:px-24">
       <div className="flex items-center justify-between">
         <h1 className="text-lg">All Transactions</h1>
         <div>

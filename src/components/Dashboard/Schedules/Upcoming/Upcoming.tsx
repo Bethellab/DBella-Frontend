@@ -106,17 +106,17 @@ const Upcoming = () => {
                 </div>
             </div>
 
-            <div className="mt-6">
+            <div className="mt-6 overflow-x-scroll">
                 <h1 className="text-lg">November, 2024</h1>
 
                 <div className="space-y-2">
                     {appointments.map((appointment, index) => (
                         <div
                             key={index}
-                            className="flex py-2 justify-between items-center rounded-lg border border-gray-300 my-0  relative"
+                            className="flex py-2 justify-between items-center w-full rounded-lg border border-gray-300 my-0  relative"
                         >
                             <div className="flex gap-6 items-center flex-grow">
-                                <div className="flex w-[120px] px-4 py-3 flex-col justify-center items-center border-r border-gray-300">
+                                <div className="flex lg:w-[120px] px-4 py-3 flex-col justify-center items-center border-r border-gray-300">
                                     <span className="text-xl font-semibold text-gray-800 text-center">
                                         {appointment.day}
                                     </span>
@@ -150,7 +150,7 @@ const Upcoming = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex flex-col justify-between gap-8 items-end w-[139px] px-6 py-4">
+                            <div className="flex flex-col justify-between gap-8 items-end lg:w-[139px] px-6 py-4">
                                 <svg
                                     onClick={() => handleDropdownToggle(index)}
                                     className="cursor-pointer"
@@ -172,7 +172,7 @@ const Upcoming = () => {
                                 </span>
                                 {openDropdown === index && (
                                     <div
-                                        className="absolute top-24 right-0 mt-10 bg-white shadow-lg border rounded-lg z-50"
+                                        className="absolute lg:top-24 right-0 mt-10 bg-white shadow-lg border rounded-lg z-50"
                                         style={{ transform: "translateY(-50%)", minWidth: "150px" }}
                                     >
                                         <ul className="py-2 text-gray-700">

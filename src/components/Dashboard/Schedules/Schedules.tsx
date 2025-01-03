@@ -9,8 +9,8 @@ import Cancelled from "./Cancelled/Cnacelled";
 const Schedules = () => {
     const { currentTab, links } = useSchedules();
     return (
-        <main className="w-full h-screen flex px-24">
-            <div className="hidden md:block md:w-1/5  relative">
+        <main className="w-full h-screen flex lg:px-24">
+            <div className=" md:w-1/5  relative">
                 <SchedulesSideBar links={links} currentTab={currentTab} />
             </div>
 
