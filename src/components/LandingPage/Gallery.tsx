@@ -7,7 +7,7 @@ import gallery4 from '../../assets/image/gallery4.png'
 const Gallery = () => {
   return (
     <div className="bg-white">
-        <div className="py-12  lg:mx-32">
+        <div className="py-12 mx-2  lg:mx-32">
             <div className='flex flex-col lg:flex-row items-center gap-10'>
                 <div>
                     <h1 className="text-lg font-semibold border-b-4 border-emerald-600 w-4">Gallery</h1>
