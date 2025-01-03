@@ -56,7 +56,7 @@ const Relax = () => {
                 <span className="flex w-[591px] h-[194px] justify-end items-center font-['Cormorant_Garamond'] text-[160px] font-bold opacity-10 leading-[193.76px] text-[#5e25cc] tracking-[1.6px] absolute top-[588px] left-[-187px] text-right whitespace-nowrap z-[8]">
                     revitalize
                 </span>
-                <span className="flex w-[372px] h-[68px] justify-end  items-start font-['Cormorant_Garamond'] text-[32px] font-bold leading-[34px] text-[#191515] tracking-[0.32px] absolute top-[711px] mr-8  text-right z-[9]">
+                <span className="flex w-[372px] h-[68px] justify-end  items-start font-['Cormorant_Garamond'] text-[28px] font-bold leading-[34px] text-[#191515] tracking-[0.32px] absolute top-[711px] mr-8  text-right z-[9]">
                     Experience transformative care for mind and body.
                 </span>
                 <img src={rediscover1} className="w-[124px] h-[205px]  bg-cover bg-no-repeat rounded-[150px] absolute top-[843px] left-[106px] z-[1]" />
@@ -64,7 +64,7 @@ const Relax = () => {
                 <span className="flex h-[194px] justify-start items-center font-['Cormorant_Garamond'] text-[160px] font-bold opacity-10 leading-[193.76px] text-[#5e25cc] tracking-[1.6px] absolute top-[979px] left-[24px] text-left whitespace-nowrap z-[7]">
                     rediscover
                 </span>
-                <span className="flex w-[372px] h-[68px] justify-start items-start font-['Cormorant_Garamond'] text-[32px] font-bold leading-[34px] text-[#191515] tracking-[0.32px] absolute top-[1102px] left-[5px] text-left z-[11]">
+                <span className="flex w-[372px] h-[68px] justify-start items-start font-['Cormorant_Garamond'] text-[28px] font-bold leading-[34px] text-[#191515] tracking-[0.32px] absolute top-[1102px] left-[5px] text-left z-[11]">
                     Uncover a renewed sense of confidence and beauty.
                 </span>
             </div>
