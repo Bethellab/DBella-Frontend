@@ -1,0 +1,11 @@
+.cc-custom-table-data-row {
+  @apply font-medium border-b-[1px] border-[#DEDEDE];
+}
+
+.cc-custom-table-data-row > td {
+  @apply text-sm font-normal px-4 py-3;
+}
+
+.cc-custom-table-data-row:hover {
+  @apply transition-all ease-in-out duration-300;
+}

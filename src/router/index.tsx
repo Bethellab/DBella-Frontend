@@ -12,6 +12,13 @@ import BellaLandingPage from "@/pages/bellas-page/LandingPage/BellaLandingPage";
 import BellasLandingHome from "@/pages/bellas-page/LandingPage/Home/BellasLandingHome";
 import About from "@/pages/bellas-page/LandingPage/About/About";
 import Contact from "@/pages/bellas-page/LandingPage/Contact/Contact";
+import DashboardLayout from "@/components/layout/DashboardLayout";
+
+import Overview from "@/components/Dashboard/Overview/Overview";
+import Schedules from "@/components/Dashboard/Schedules/Schedules";
+import Orders from "@/components/Dashboard/Orders/Orders";
+import Transactions from "@/components/Dashboard/Transactions/Transactions";
+import Profile from "@/components/Dashboard/Profile/Profile";
 
 
 const router = createBrowserRouter([
@@ -40,7 +47,23 @@ const router = createBrowserRouter([
   },
 
 
- 
+  {
+    
+    element: (
+      <DashboardLayout>
+        <Outlet />
+      </DashboardLayout>
+    ),
+    children: [
+      { path: "/overview", element: <Overview /> },
+      { path: "/schedules", element: <Schedules /> },
+      { path: "/orders", element: <Orders /> },
+      { path: "/transactions", element: <Transactions /> },
+      { path: "/profile", element: <Profile /> },
+      
+    ],
+  },
+
 
 
 

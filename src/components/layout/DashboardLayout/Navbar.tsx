@@ -27,7 +27,7 @@ const links = [
  
   {
     name: "Profile",
-    link: "/profile",
+    link: "/profile?tab=userdetails",
     icon: "ph:layout",
   },
 ]

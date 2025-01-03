@@ -11,7 +11,7 @@ const Header = () => {
           <span className="text-white font-['Cormorant_Garamond'] text-3xl sm:text-4xl lg:text-6xl font-medium leading-tight">
             Welcome to <br /> D'Bellas Glow
           </span>
-          <p className="font-['Cormorant_Garamond'] text-white text-lg sm:text-xl lg:text-2xl leading-relaxed">
+          <p className="w-[461px] font-['Cormorant_Garamond'] text-white text-lg sm:text-xl lg:text-2xl leading-relaxed">
             Where beauty meets tranquility, and every moment is about you.
           </p>
         </div>
